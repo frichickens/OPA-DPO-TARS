@@ -1,0 +1,18 @@
+diff --git a/llava/train/llava_trainer.py b/llava/train/llava_trainer.py
+index cdbcd8a..8757618 100644
+--- a/llava/train/llava_trainer.py
++++ b/llava/train/llava_trainer.py
+@@ -778,11 +778,9 @@ class LLAVADPOTrainer(LLaVATrainer):
+         rej_size = rej_input_ids.shape[0]
+         assert win_size == rej_size
+ 
++        original_win_input_ids = win_input_ids.clone()
++        original_rej_input_ids = rej_input_ids.clone()
+         if self.args.use_tokenizer_adversarial:
+-            original_win_input_ids = win_input_ids.clone()
+-            original_rej_input_ids = rej_input_ids.clone()
+-
+-
+             win_input_ids, win_labels, win_mask = perturb_tokens_with_labels(
+                 win_input_ids, win_labels, win_input_token_similarities, mode=self.args.token_mode_adv, tokenizer=tokenizer, replace_prob=self.args.adv_p)
+             rej_input_ids, rej_labels, rej_mask = perturb_tokens_with_labels(
