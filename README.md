@@ -1,5 +1,8 @@
 # OPA-DPO (On-Policy Alignment Direct Preference Optimization)
 
+> **Cross-training extension:** To train the official OPA-DPO recipe on the
+> TARS/RLHF-V preference corpus, see [TARS_CROSS_TRAINING.md](TARS_CROSS_TRAINING.md).
+
 [![arXiv](https://img.shields.io/badge/arXiv-PDF-red)](https://arxiv.org/abs/2501.09695)
 [![Project Page](https://img.shields.io/badge/Project-Page-brightgreen)](https://opa-dpo.github.io/)
 [![Google Drive](https://img.shields.io/badge/Dataset-GoogleDrive-yellow)](https://drive.google.com/drive/folders/1Xmrb43zIbk3IzLLRQx65iBf7J4SHXa9j)
@@ -157,4 +160,3 @@ If you find OPA-DPO helpful for your work, please cite
   year={2025}
 }
 ```
-

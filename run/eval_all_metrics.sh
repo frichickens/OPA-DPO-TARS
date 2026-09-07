@@ -1,15 +1,15 @@
 # ! This script is used to evaluate the model on multiple benchmarks.
 # ! Evaluation requires only one GPU, but you should at least guarantee that the GPU memory larger than 40 GB to prevent OOM problem.
-export CUDA_VISIBLE_DEVICES=3
-export OPENAI_ENDPOINT="YOUR_ENDPOINT"
-export OPENAI_API_KEY='YOUR_API_KEY'
+export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0}
+export OPENAI_ENDPOINT=${OPENAI_ENDPOINT:-"YOUR_ENDPOINT"}
+export OPENAI_API_KEY=${OPENAI_API_KEY:-'YOUR_API_KEY'}
 export PYTHONPATH="$PWD:$PYTHONPATH"
 echo "PYTHONPATH=$PYTHONPATH"
 
 # # * FOR LLaVA-1.5-7B Model OPA Evaluation
-MODEL_BASE=./base_models/llava-v1.5-7b
-MODEL_LORA_BASE=./output/llava7b_opa_model/checkpoint-final/adapter_model/lora_policy/
-MODEL_SUFFIX=llava7b_opa_eval
+MODEL_BASE=${MODEL_BASE:-./base_models/llava-v1.5-7b}
+MODEL_LORA_BASE=${MODEL_LORA_BASE:-./output/llava7b_opa_model/checkpoint-final/adapter_model/lora_policy/}
+MODEL_SUFFIX=${MODEL_SUFFIX:-llava7b_opa_eval}
 
 # # * FOR LLaVA-1.5-7B Model OPA-DPO Evaluation
 # MODEL_BASE=./base_models/llava-v1.5-7b
@@ -27,10 +27,10 @@ MODEL_SUFFIX=llava7b_opa_eval
 # MODEL_SUFFIX=llava13b_opadpo_eval
 
 # ! Define important Figure Path
-IMAGE_FOLDER_LB=PATH_TO/coco/train2017
-IMAGE_FOLDER_POPE=PATH_TO/coco/val2014
-IMAGE_DIR_AMBER=PATH_TO/AMBER/image
-ANNOTATION_FILE=PATH_TO/coco/annotations
+IMAGE_FOLDER_LB=${IMAGE_FOLDER_LB:-PATH_TO/coco/train2017}
+IMAGE_FOLDER_POPE=${IMAGE_FOLDER_POPE:-PATH_TO/coco/val2014}
+IMAGE_DIR_AMBER=${IMAGE_DIR_AMBER:-PATH_TO/AMBER/image}
+ANNOTATION_FILE=${ANNOTATION_FILE:-PATH_TO/coco/annotations}
 
 # ! Stage1 Eval mm-hal bench (requires OpenAI API)
 OUTPUT_DIR=./output/evaluation/mmhal_bench

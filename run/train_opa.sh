@@ -3,12 +3,12 @@ set -e
 set -x
 
 # Note: For LLaVA-1.5-7B Model OPA Training
-export CUDA_VISIBLE_DEVICES=0,1,2,3
-export GPUS_PER_NODE=4
-export DATA_DIR="./base_datasets/opa_training_data-7B"
+export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0,1,2,3}
+export GPUS_PER_NODE=${GPUS_PER_NODE:-4}
+export DATA_DIR=${DATA_DIR:-"./base_datasets/opa_training_data-7B"}
 export IMAGE_DIR="none"
-export MODEL_DIR="./base_models/llava-v1.5-7b"
-export OUTPUT_DIR="./output/llava7b_opa_model"
+export MODEL_DIR=${MODEL_DIR:-"./base_models/llava-v1.5-7b"}
+export OUTPUT_DIR=${OUTPUT_DIR:-"./output/llava7b_opa_model"}
 
 # # Note: For LLaVA-1.5-13B Model OPA Training
 # export CUDA_VISIBLE_DEVICES=0,1,2,3

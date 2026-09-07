@@ -3,15 +3,15 @@ set -e
 set -x
 
 # * FOR Multicard RUN
-export CUDA_VISIBLE_DEVICES=0,1,2,3
-export GPUS_PER_NODE=4
+export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0,1,2,3}
+export GPUS_PER_NODE=${GPUS_PER_NODE:-4}
 
 # Note: For LLaVA-1.5-7B Model OPA-DPO Training
-export DATA_DIR="./base_datasets/opadpo_training_data-7B"
+export DATA_DIR=${DATA_DIR:-"./base_datasets/opadpo_training_data-7B"}
 export IMAGE_DIR="none"
-export MODEL_DIR="./base_models/llava-v1.5-7b"
-export POLICY_LORA_DIR="./output/llava7b_opa_model/checkpoint-final"
-export OUTPUT_DIR="./output/llava7b_opadpo_model"
+export MODEL_DIR=${MODEL_DIR:-"./base_models/llava-v1.5-7b"}
+export POLICY_LORA_DIR=${POLICY_LORA_DIR:-"./output/llava7b_opa_model/checkpoint-final"}
+export OUTPUT_DIR=${OUTPUT_DIR:-"./output/llava7b_opadpo_model"}
 
 # # Note: For LLaVA-1.5-13B Model OPA-DPO Training
 # export DATA_DIR="./base_datasets/opadpo_training_data-13B"
@@ -70,11 +70,11 @@ ANCHOR=0.0
 MDPO_ANCHOR='True'
 ANCHOR_COEF=1.0
 
-DETAILED_REPORT='True'
-RESPONSE_SCORE='True'
-RESPONSE_IMAGE_RELATION='True'
-STANDARD_PAIR_COEF=1.0
-AI_PAIR_COEF=1.0
+DETAILED_REPORT=${DETAILED_REPORT:-'True'}
+RESPONSE_SCORE=${RESPONSE_SCORE:-'True'}
+RESPONSE_IMAGE_RELATION=${RESPONSE_IMAGE_RELATION:-'True'}
+STANDARD_PAIR_COEF=${STANDARD_PAIR_COEF:-1.0}
+AI_PAIR_COEF=${AI_PAIR_COEF:-1.0}
 
 # Debugging: Print variables to check their values
 echo "GPUS_PER_NODE=$GPUS_PER_NODE"
